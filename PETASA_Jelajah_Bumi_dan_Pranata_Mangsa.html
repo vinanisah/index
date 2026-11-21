@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101b50">
+  <meta name="description" content="Mini-game PETASA kelas VII: Jejak Lintang Waluku, Pranata Mangsa, dan kondisi pendukung kehidupan di Bumi.">
+  <title>Jelajah Bumi &amp; Pranata Mangsa | PETASA</title>
+  <style>
+:root{--bg:#0c153d;--blue:#1c2b70;--purple:#463074;--border:rgba(151,179,255,.22);--gold:#ffc469;--gold2:#f69a36;--white:#f5f7ff;--soft:#c4d4f5;--faint:#8fa8d5;--green:#80e9b4;--cyan:#83d9ff;--panel:linear-gradient(149deg,rgba(31,45,112,.96),rgba(33,29,83,.95));--shadow:0 14px 36px rgba(0,7,28,.26)}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0}body{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--white);background:var(--bg);overflow-x:hidden}button{font:inherit;cursor:pointer}button:disabled{opacity:.47;cursor:not-allowed}button:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:3px}button:hover:not(:disabled){filter:brightness(1.08)}[hidden]{display:none!important}
+.ambient{position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 45% 70% at 95% 4%,rgba(103,62,150,.48),transparent 80%),radial-gradient(ellipse 70% 50% at 1% 110%,rgba(36,87,164,.45),transparent 70%),linear-gradient(130deg,#111b49,#20245e 58%,#382251)}.ambient:after{content:"";position:absolute;inset:0;opacity:.65;background-image:radial-gradient(#f9edcf 1px,transparent 1.6px),radial-gradient(#a0d9ff 1px,transparent 2px);background-size:163px 149px,251px 211px;background-position:12px 22px,66px 93px}
+.app-shell{width:min(100%,1600px);height:100svh;min-height:540px;margin:auto;padding:clamp(10px,1.3vw,18px) clamp(14px,2.6vw,38px) 10px;display:flex;flex-direction:column;gap:clamp(8px,1.15vh,12px)}
+.topbar{display:flex;justify-content:space-between;align-items:center;min-height:46px;gap:10px}.brand{display:flex;gap:10px;align-items:center}.brand-symbol{display:grid;place-items:center;width:40px;height:40px;border:2px solid var(--gold);border-radius:13px;color:var(--gold);background:rgba(255,192,95,.1);font-size:24px;box-shadow:0 0 28px rgba(244,170,68,.13)}.brand b{font-size:17px;font-weight:1000;letter-spacing:.17em;color:#fff}.brand small{display:block;font-size:9px;letter-spacing:.09em;color:var(--faint);font-weight:800}.top-actions{display:flex;align-items:center;gap:8px}.mission-tag{border:1px solid rgba(255,188,99,.35);background:rgba(255,184,91,.08);color:var(--gold);border-radius:99px;padding:9px 12px;font-size:10px;font-weight:900;letter-spacing:.1em}.mission-tag i{font-style:normal;margin:0 4px;color:#a6b8e9}.top-icon{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:rgba(35,49,119,.65);color:#fff;font-weight:900;font-size:20px}
+.journey{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.waypoint{border:1px solid var(--border);border-radius:15px;background:rgba(29,41,105,.58);padding:9px 13px;display:flex;gap:11px;align-items:center;opacity:.58;min-height:53px}.waypoint-number{display:grid;place-items:center;flex:none;width:29px;height:29px;border-radius:10px;background:#2d3b80;color:#bacbf1;font-size:11px;font-weight:1000;border:1px solid #5162a3}.waypoint b{display:block;font-size:11px;letter-spacing:.07em;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.waypoint small{display:block;margin-top:2px;font-size:10px;color:#b9c8ea}.waypoint.active{border-color:#f5b863;background:linear-gradient(120deg,rgba(114,91,146,.25),rgba(255,181,78,.1));opacity:1}.waypoint.active .waypoint-number{background:linear-gradient(145deg,#ffdb81,#f39c42);border-color:#ffce72;color:#272650}.waypoint.complete{opacity:1;border-color:rgba(124,237,173,.3)}.waypoint.complete .waypoint-number{background:#276e6a;border-color:#79e6b4;color:white}
+main{flex:1;min-height:0;display:flex;flex-direction:column}.screen{display:none;flex:1;min-height:0;animation:rise .32s ease-out both}.screen.active{display:flex;flex-direction:column}@keyframes rise{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}.eyebrow,.section-kicker{margin:0 0 8px;color:var(--gold);font-weight:900;letter-spacing:.18em;font-size:10px}.section-kicker{letter-spacing:.13em}.muted{color:var(--soft);font-size:12px;line-height:1.55}.btn{border:none;text-align:center;text-decoration:none;border-radius:13px;font-size:12px;font-weight:1000;letter-spacing:.055em;padding:14px 18px;display:inline-flex;justify-content:center;align-items:center;gap:10px;transition:transform .16s,filter .16s,background .16s}.btn-primary{color:#252654;background:linear-gradient(#ffda83,#ffb354);box-shadow:0 5px 0 #a76532,0 10px 25px rgba(5,9,33,.25)}.btn-primary:hover:not(:disabled){transform:translateY(-2px)}.btn-outline{color:#fff;border:1px solid rgba(161,189,255,.45);background:rgba(110,130,220,.14)}.panel{background:var(--panel);border:1px solid var(--border);box-shadow:var(--shadow),inset 0 1px rgba(255,255,255,.05);border-radius:22px;min-height:0;overflow:hidden}
+/* Intro */
+.welcome-grid{height:100%;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center;gap:clamp(12px,2.9vw,50px)}.welcome-copy{padding:clamp(8px,2vw,32px) 0 clamp(8px,2vw,32px) clamp(8px,1.5vw,28px);position:relative;z-index:2}.welcome-copy h1{font-size:clamp(36px,4.6vw,75px);line-height:1.01;letter-spacing:-.045em;margin:0;font-weight:1000}.welcome-copy h1 span{display:block;color:var(--gold);font-size:.87em;margin-top:7px}.welcome-sub{font-size:clamp(16px,1.6vw,23px);font-weight:800;color:#e5ebff;margin:13px 0 0}.story-text{margin:18px 0 18px;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:7px 14px;background:linear-gradient(90deg,rgba(255,195,99,.1),transparent);font-size:clamp(13px,1.15vw,16px);line-height:1.65;color:#d9e5ff;max-width:600px}.story-text strong{color:#fff}.feature-row{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:24px}.feature-row span{background:rgba(72,93,179,.18);border:1px solid rgba(147,181,239,.25);padding:7px 10px;border-radius:100px;color:#dbebff;font-size:10px;font-weight:800}.aside-note{font-size:11px;line-height:1.6;color:#9bafd8;margin-top:17px}.welcome-scene{height:clamp(320px,100%,600px);min-height:300px;border:1.5px solid rgba(255,197,107,.54);border-radius:27px;position:relative;overflow:hidden;background:#251f61;box-shadow:0 20px 48px rgba(0,0,0,.28)}.scene-image{position:absolute;inset:0;background-image:linear-gradient(180deg,transparent 20%,rgba(10,16,46,.15)),url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDcwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJJbHVzdHJhc2kgb3Jpc2luYWwgc2F3YWggRGVzYSBTdW1iZXJhcnVtIHBhZGEgbWFsYW0gaGFyaSI+CjxkZWZzPgogPGxpbmVhckdyYWRpZW50IGlkPSJza3kiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzEyMWI1NCIvPjxzdG9wIG9mZnNldD0iLjQ5IiBzdG9wLWNvbG9yPSIjM2MyZDc5Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODU0Njc2Ii8+PC9saW5lYXJHcmFkaWVudD4KIDxsaW5lYXJHcmFkaWVudCBpZD0iZWFydGgiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzNjNWU4MiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFiMmQ1MCIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImZpZWxkIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMyZDUzNjMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxMDFlNDMiLz48L2xpbmVhckdyYWRpZW50PgogPHJhZGlhbEdyYWRpZW50IGlkPSJnbG93Ij48c3RvcCBzdG9wLWNvbG9yPSIjZmZmNGQ0IiBzdG9wLW9wYWNpdHk9Ii42NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZThiZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KIDxwYXR0ZXJuIGlkPSJzdGFycyIgd2lkdGg9IjE0NyIgaGVpZ2h0PSIxMjciIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxjaXJjbGUgY3g9IjE0IiBjeT0iMjEiIHI9IjEuNCIgZmlsbD0iI2U3ZThmZiIgb3BhY2l0eT0iLjciLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjY5IiByPSIuOSIgZmlsbD0iI2E3YzZmZiIgb3BhY2l0eT0iLjc1Ii8+PGNpcmNsZSBjeD0iMTI0IiBjeT0iMTgiIHI9IjEuMSIgZmlsbD0iI2ZmZjVjZiIgb3BhY2l0eT0iLjciLz48Y2lyY2xlIGN4PSIzNyIgY3k9IjEwMCIgcj0iLjciIGZpbGw9IiNmYmY0ZmYiIG9wYWNpdHk9Ii42NiIvPjwvcGF0dGVybj4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MDAiIGZpbGw9InVybCgjc2t5KSIvPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjUyMCIgZmlsbD0idXJsKCNzdGFycykiLz4KPGNpcmNsZSBjeD0iOTczIiBjeT0iMTY3IiByPSIxNDQiIGZpbGw9InVybCgjZ2xvdykiIG9wYWNpdHk9Ii4yIi8+PGNpcmNsZSBjeD0iOTczIiBjeT0iMTY3IiByPSI0NyIgZmlsbD0iI2ZmZThiZiIgb3BhY2l0eT0iLjcyIi8+PGNpcmNsZSBjeD0iOTk0IiBjeT0iMTUyIiByPSI0MyIgZmlsbD0iIzM5MmI3MiIvPgo8cGF0aCBkPSJNMCA0MjEgMTAwIDM0MCAyMDggMzk5IDMyNCAyODUgNDQzIDQwNCA1NzkgMzI1IDcxNCAzOTIgODM2IDMwMSA5NjYgMzkyIDEwOTAgMzI5IDEyMDAgNDAzVjcwMEgwWiIgZmlsbD0iIzQ0NDA2ZiIgb3BhY2l0eT0iLjU2Ii8+CjxwYXRoIGQ9Ik0wIDQ3NSAxNTMgMzg5IDMxMiA0NTkgNDU1IDM2NiA2MjQgNDQ3IDc3MSAzODAgOTQxIDQ0MiAxMDcwIDM2MiAxMjAwIDQyOFY3MDBIMFoiIGZpbGw9IiMyYjNhNjUiLz4KPHBhdGggZD0iTTAgNTA4IFExNzUgNDU4IDM2OSA1MDBUNzY4IDQ5M1QxMjAwIDQ4NVY3MDBIMFoiIGZpbGw9InVybCgjZWFydGgpIi8+CjxwYXRoIGQ9Ik0wIDU2MSBDMTgyIDUwMyAzMjUgNTMyIDUwMiA1NjhTOTE4IDUxMiAxMjAwIDU0MVY3MDBIMFoiIGZpbGw9InVybCgjZmllbGQpIi8+CjxnIHN0cm9rZT0iIzc4YTZhNSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIuMjgiIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik0wIDYxMCBRMjU3IDU1MiA1MjggNjAxVDEyMDAgNTkwIi8+PHBhdGggZD0iTTAgNjU2IFEyODEgNTgzIDU1NiA2NDNUMTIwMCA2MzYiLz48cGF0aCBkPSJNMTg1IDU0NCA2NSA3MDBNNDE2IDU2NCAzMTYgNzAwTTY3MCA1NTUgNjI4IDcwME05MDAgNTUwIDk0MSA3MDBNMTA5MCA1NDMgMTE5NyA3MDAiLz48L2c+CjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzc2YTY4YiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9Ii42MiI+CiA8cGF0aCBkPSJNMjggNjQwbC02LTE1bTYgMTUgOS0yMW0tOSAyMS0xLTMwTTcyIDYwNGwtNi0xNG02IDE0IDEwLTE3bS0xMCAxNyAxLTI1TTExOCA2ODBsLTUtMThtNSAxOCAxMC0xOG0tMTAgMTggMC0yN00xNjAgNjM1bC01LTE3bTUgMTcgMTItMThtLTEyIDE4IDItMjhNMjM3IDY3M2wtNi0xNm02IDE2IDExLTE4bS0xMSAxOC0xLTI4TTI4NSA2MThsLTUtMTJtNSAxMiA5LTE1TTM4MSA2NzRsLTktMTZtOSAxNiAxMy0xOG0tMTMgMTggMi0yOE00NjUgNjM2bC03LTE2bTcgMTYgOS0xOG0tOSAxOCAxLTI2TTU0NyA2NzRsLTYtMTRtNiAxNCA4LTIxTTYxMCA2MTFsLTYtMTFtNiAxMSA3LTE0TTY5NSA2NzFsLTYtMTZtNiAxNiAxMC0xN003NzMgNjMwbC01LTE3bTUgMTcgMTMtMTdtLTEzIDE3LTEtMjVNODYwIDY3OWwtNi0xNW02IDE1IDgtMTVNOTQwIDYxNmwtOC0xNG04IDE0IDEwLTE0TTEwMDYgNjczbC01LTEzbTUgMTMgMTEtMTdtLTExIDE3LTItMjdNMTExMSA2MzBsLTYtMTdtNiAxNyAxMS0xOG0tMTEgMTggMi0yOE0xMTY0IDY3OWwtNC0xOG00IDE4IDktMjEiLz4KPC9nPgo8ZyBmaWxsPSIjMGUxOTQwIiBvcGFjaXR5PSIuODgiPjxwYXRoIGQ9Ik00MCA1NDdWMzcxaDl2MTc2TTEyIDM4OXEyOC02MiA2Mi00bC0zNS03ek04IDQwMnEzNC0zNSA3Ny00bC00NC05eiIvPjxwYXRoIGQ9Ik0xMTM2IDU1NVYzNTBoMTB2MjA1TTExMDQgMzcxcTM1LTY0IDczIDJsLTM2LTE0ek0xMDk1IDM5N3E0MS00NSA5MSAxbC00My0xMXoiLz48L2c+CjxwYXRoIGQ9Ik0xMjAwIDcwMEgwVjY4OGMxNzUtMjQgMzI2LTE0IDUxNC00IDI1NSAxMiA0MDUtNDIgNjg2LTF6IiBmaWxsPSIjMGIxNDMxIiBvcGFjaXR5PSIuNDUiLz4KPC9zdmc+Cg==');background-position:center;background-size:cover}.welcome-orion{position:absolute;top:10%;left:35%;width:40%;height:53%;filter:drop-shadow(0 0 20px rgba(159,213,255,.35))}.star-svg{width:100%;height:100%}.star-dots circle{fill:#f8f7ff;filter:drop-shadow(0 0 5px #e4f0ff)}.star-dots circle[fill]{fill:#ffca9c}.constellation-lines path{fill:none;stroke:#a7d5ff;stroke-width:1.4;stroke-dasharray:4 6;opacity:.8}.sky-caption{position:absolute;left:18px;bottom:18px;z-index:2;background:rgba(19,30,85,.77);border:1px solid rgba(255,216,132,.5);border-radius:12px;padding:9px 12px;backdrop-filter:blur(6px);font-size:10px;font-weight:950;letter-spacing:.12em}.sky-caption small{font-size:9px;color:#bbcbea}.caption-dot{display:inline-block;width:6px;height:6px;background:var(--gold);border-radius:50%;margin-right:6px}.scene-glow{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 60px rgba(11,11,56,.4)}
+/* stage shared */
+.stage-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:6px 0 12px}.stage-heading h2{font-size:clamp(24px,2.8vw,40px);line-height:1.04;letter-spacing:-.025em;margin:0;color:white;font-weight:1000}.stage-heading h2 span{color:var(--gold)}.stage-heading p:not(.eyebrow){color:#bfcfeb;font-size:clamp(11px,.93vw,13px);margin:7px 0 0;line-height:1.5}.mini-counter{border:1px solid rgba(255,196,102,.4);background:rgba(255,186,82,.1);padding:10px 14px;color:var(--gold);font-size:10px;border-radius:100px;font-weight:900;white-space:nowrap;letter-spacing:.04em}.bottom-action{margin-top:auto;padding-top:11px;display:flex;justify-content:flex-end}.bottom-action .btn{min-width:225px}
+/* Orion */
+.orion-layout,.field-layout,.earth-layout{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:15px;min-height:0;flex:1}.sky-view{position:relative;padding:16px;display:flex;flex-direction:column;background:linear-gradient(175deg,rgba(27,37,97,.74),rgba(14,24,62,.93)),url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDcwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJJbHVzdHJhc2kgb3Jpc2luYWwgc2F3YWggRGVzYSBTdW1iZXJhcnVtIHBhZGEgbWFsYW0gaGFyaSI+CjxkZWZzPgogPGxpbmVhckdyYWRpZW50IGlkPSJza3kiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzEyMWI1NCIvPjxzdG9wIG9mZnNldD0iLjQ5IiBzdG9wLWNvbG9yPSIjM2MyZDc5Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODU0Njc2Ii8+PC9saW5lYXJHcmFkaWVudD4KIDxsaW5lYXJHcmFkaWVudCBpZD0iZWFydGgiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzNjNWU4MiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFiMmQ1MCIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImZpZWxkIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMyZDUzNjMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxMDFlNDMiLz48L2xpbmVhckdyYWRpZW50PgogPHJhZGlhbEdyYWRpZW50IGlkPSJnbG93Ij48c3RvcCBzdG9wLWNvbG9yPSIjZmZmNGQ0IiBzdG9wLW9wYWNpdHk9Ii42NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZThiZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KIDxwYXR0ZXJuIGlkPSJzdGFycyIgd2lkdGg9IjE0NyIgaGVpZ2h0PSIxMjciIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxjaXJjbGUgY3g9IjE0IiBjeT0iMjEiIHI9IjEuNCIgZmlsbD0iI2U3ZThmZiIgb3BhY2l0eT0iLjciLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjY5IiByPSIuOSIgZmlsbD0iI2E3YzZmZiIgb3BhY2l0eT0iLjc1Ii8+PGNpcmNsZSBjeD0iMTI0IiBjeT0iMTgiIHI9IjEuMSIgZmlsbD0iI2ZmZjVjZiIgb3BhY2l0eT0iLjciLz48Y2lyY2xlIGN4PSIzNyIgY3k9IjEwMCIgcj0iLjciIGZpbGw9IiNmYmY0ZmYiIG9wYWNpdHk9Ii42NiIvPjwvcGF0dGVybj4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MDAiIGZpbGw9InVybCgjc2t5KSIvPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjUyMCIgZmlsbD0idXJsKCNzdGFycykiLz4KPGNpcmNsZSBjeD0iOTczIiBjeT0iMTY3IiByPSIxNDQiIGZpbGw9InVybCgjZ2xvdykiIG9wYWNpdHk9Ii4yIi8+PGNpcmNsZSBjeD0iOTczIiBjeT0iMTY3IiByPSI0NyIgZmlsbD0iI2ZmZThiZiIgb3BhY2l0eT0iLjcyIi8+PGNpcmNsZSBjeD0iOTk0IiBjeT0iMTUyIiByPSI0MyIgZmlsbD0iIzM5MmI3MiIvPgo8cGF0aCBkPSJNMCA0MjEgMTAwIDM0MCAyMDggMzk5IDMyNCAyODUgNDQzIDQwNCA1NzkgMzI1IDcxNCAzOTIgODM2IDMwMSA5NjYgMzkyIDEwOTAgMzI5IDEyMDAgNDAzVjcwMEgwWiIgZmlsbD0iIzQ0NDA2ZiIgb3BhY2l0eT0iLjU2Ii8+CjxwYXRoIGQ9Ik0wIDQ3NSAxNTMgMzg5IDMxMiA0NTkgNDU1IDM2NiA2MjQgNDQ3IDc3MSAzODAgOTQxIDQ0MiAxMDcwIDM2MiAxMjAwIDQyOFY3MDBIMFoiIGZpbGw9IiMyYjNhNjUiLz4KPHBhdGggZD0iTTAgNTA4IFExNzUgNDU4IDM2OSA1MDBUNzY4IDQ5M1QxMjAwIDQ4NVY3MDBIMFoiIGZpbGw9InVybCgjZWFydGgpIi8+CjxwYXRoIGQ9Ik0wIDU2MSBDMTgyIDUwMyAzMjUgNTMyIDUwMiA1NjhTOTE4IDUxMiAxMjAwIDU0MVY3MDBIMFoiIGZpbGw9InVybCgjZmllbGQpIi8+CjxnIHN0cm9rZT0iIzc4YTZhNSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIuMjgiIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik0wIDYxMCBRMjU3IDU1MiA1MjggNjAxVDEyMDAgNTkwIi8+PHBhdGggZD0iTTAgNjU2IFEyODEgNTgzIDU1NiA2NDNUMTIwMCA2MzYiLz48cGF0aCBkPSJNMTg1IDU0NCA2NSA3MDBNNDE2IDU2NCAzMTYgNzAwTTY3MCA1NTUgNjI4IDcwME05MDAgNTUwIDk0MSA3MDBNMTA5MCA1NDMgMTE5NyA3MDAiLz48L2c+CjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzc2YTY4YiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9Ii42MiI+CiA8cGF0aCBkPSJNMjggNjQwbC02LTE1bTYgMTUgOS0yMW0tOSAyMS0xLTMwTTcyIDYwNGwtNi0xNG02IDE0IDEwLTE3bS0xMCAxNyAxLTI1TTExOCA2ODBsLTUtMThtNSAxOCAxMC0xOG0tMTAgMTggMC0yN00xNjAgNjM1bC01LTE3bTUgMTcgMTItMThtLTEyIDE4IDItMjhNMjM3IDY3M2wtNi0xNm02IDE2IDExLTE4bS0xMSAxOC0xLTI4TTI4NSA2MThsLTUtMTJtNSAxMiA5LTE1TTM4MSA2NzRsLTktMTZtOSAxNiAxMy0xOG0tMTMgMTggMi0yOE00NjUgNjM2bC03LTE2bTcgMTYgOS0xOG0tOSAxOCAxLTI2TTU0NyA2NzRsLTYtMTRtNiAxNCA4LTIxTTYxMCA2MTFsLTYtMTFtNiAxMSA3LTE0TTY5NSA2NzFsLTYtMTZtNiAxNiAxMC0xN003NzMgNjMwbC01LTE3bTUgMTcgMTMtMTdtLTEzIDE3LTEtMjVNODYwIDY3OWwtNi0xNW02IDE1IDgtMTVNOTQwIDYxNmwtOC0xNG04IDE0IDEwLTE0TTEwMDYgNjczbC01LTEzbTUgMTMgMTEtMTdtLTExIDE3LTItMjdNMTExMSA2MzBsLTYtMTdtNiAxNyAxMS0xOG0tMTEgMTggMi0yOE0xMTY0IDY3OWwtNC0xOG00IDE4IDktMjEiLz4KPC9nPgo8ZyBmaWxsPSIjMGUxOTQwIiBvcGFjaXR5PSIuODgiPjxwYXRoIGQ9Ik00MCA1NDdWMzcxaDl2MTc2TTEyIDM4OXEyOC02MiA2Mi00bC0zNS03ek04IDQwMnEzNC0zNSA3Ny00bC00NC05eiIvPjxwYXRoIGQ9Ik0xMTM2IDU1NVYzNTBoMTB2MjA1TTExMDQgMzcxcTM1LTY0IDczIDJsLTM2LTE0ek0xMDk1IDM5N3E0MS00NSA5MSAxbC00My0xMXoiLz48L2c+CjxwYXRoIGQ9Ik0xMjAwIDcwMEgwVjY4OGMxNzUtMjQgMzI2LTE0IDUxNC00IDI1NSAxMiA0MDUtNDIgNjg2LTF6IiBmaWxsPSIjMGIxNDMxIiBvcGFjaXR5PSIuNDUiLz4KPC9zdmc+Cg==') center center/cover}.sky-card-top{display:flex;justify-content:space-between;align-items:center}.little-tag{padding:7px 10px;font-size:10px;color:#fee1a4;border:1px solid rgba(255,198,110,.43);background:rgba(255,194,102,.1);border-radius:999px;letter-spacing:.1em;font-weight:800}.twinkle{color:#a1d9ff;letter-spacing:12px}.starry-stage{min-height:220px;flex:1;position:relative;display:grid;place-items:center;overflow:hidden}.starry-stage:before{content:"";position:absolute;inset:6%;background-image:radial-gradient(#c6dbff 1px,transparent 1.4px),radial-gradient(#ffe9b9 1px,transparent 1.4px);background-size:73px 81px,149px 121px;opacity:.46}.big-orion{position:relative;width:min(82%,450px);height:100%;max-height:330px;filter:drop-shadow(0 0 9px rgba(102,189,255,.22))}.big-stars circle{fill:white;filter:drop-shadow(0 0 4px #d3ebff)}.big-stars .warm-star{fill:#ffc4a6}.guide path{fill:none;stroke:#acdcff;stroke-width:1.5;stroke-dasharray:4 8}.reveal-lines{opacity:0;transition:opacity .35s}.reveal-lines path{fill:none;stroke:#ffd06c;stroke-width:2.5;stroke-linecap:round}.reveal-lines.shown{opacity:1}.sky-help{border-radius:12px;border:1px solid rgba(158,191,255,.2);background:rgba(10,20,65,.73);padding:12px 14px;font-size:12px;line-height:1.6;color:#c4dafc}.sky-help strong{color:var(--gold)}.interaction-panel{padding:clamp(15px,1.8vw,25px);display:flex;flex-direction:column;gap:7px}.interaction-panel h3,.field-decision h3,.synthesis h3,.final-report h3{font-size:clamp(17px,1.5vw,23px);line-height:1.28;margin:0;font-weight:900}.interaction-panel .muted{margin:1px 0 10px}.pattern-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.pattern-card{border:1.5px solid #566ba9;border-radius:14px;background:rgba(16,32,89,.65);min-height:128px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#dceaff;padding:9px;position:relative;transition:transform .18s,border-color .18s,background .18s}.pattern-card:hover:not(:disabled){transform:translateY(-4px);border-color:#ffc66f}.pattern-card svg{height:78px;width:100%;max-width:115px;overflow:visible}.pattern-card svg path{fill:none;stroke:#97bbf7;stroke-width:1.3;stroke-dasharray:3 3}.pattern-card svg circle{fill:#eaf7ff;filter:drop-shadow(0 0 3px #b8e3ff)}.pattern-card b{border-radius:8px;background:#324488;padding:4px 12px;font-size:11px}.pattern-card.picked{border-color:#ffc469;background:rgba(255,184,77,.16)}.pattern-card.right{border-color:#6cebb0;background:rgba(84,199,141,.12)}.pattern-card.wrong{border-color:#ffa69d}.feedback-slot{background:rgba(14,25,69,.6);border:1px solid var(--border);border-radius:12px;padding:11px 13px;font-size:12px;line-height:1.6;color:#c5d6f4;min-height:66px}.feedback-slot.good{border-color:rgba(107,230,168,.47);background:rgba(45,122,99,.18);color:#dcfff1}.feedback-slot.attention{border-color:rgba(255,174,110,.44);background:rgba(133,78,46,.16);color:#ffe7cf}
+/* Field */
+.field-observe{padding:12px;display:flex;flex-direction:column;gap:10px}.field-illustration{height:clamp(135px,25vh,230px);overflow:hidden;border-radius:14px;position:relative;border:1px solid #4b569d;flex:none}.field-illustration img{width:100%;height:100%;object-fit:cover;object-position:center 58%;filter:saturate(1.06)}.field-overlay{position:absolute;bottom:10px;left:12px;background:rgba(12,20,65,.86);border-radius:10px;padding:7px 12px;display:flex;flex-direction:column;gap:2px}.field-overlay span{font-size:9px;letter-spacing:.13em;color:#ffc674;font-weight:950}.field-overlay b{font-size:12px}.field-observe .section-kicker{margin:0}.clue-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.clue{min-width:0;border:1px solid rgba(140,174,237,.29);border-radius:12px;background:rgba(20,37,93,.74);color:#fff;padding:10px 8px;display:flex;gap:7px;align-items:center;text-align:left;transition:transform .18s,border-color .18s}.clue:hover{transform:translateY(-2px);border-color:#ffc469}.clue.done{border-color:rgba(120,235,176,.65);background:rgba(38,92,99,.27)}.clue-ico{display:grid;place-items:center;background:rgba(85,119,200,.26);border-radius:10px;width:33px;height:35px;flex:none;font-size:22px;color:#ffd584}.clue strong{display:block;font-size:11px}.clue small{display:block;font-size:9px;color:#b8c9ee;margin-top:3px}.clue-check{margin-left:auto;font-size:11px;color:#90e9b1}.clue-detail{flex:1;min-height:64px;background:rgba(15,26,74,.68);border:1px solid rgba(145,170,226,.22);border-radius:12px;padding:12px 14px;font-size:12px;color:#c4d6f4;line-height:1.6;display:flex;flex-direction:column;justify-content:center;gap:3px}.clue-detail b{color:#ffd58b;font-size:12px}.field-decision{padding:clamp(13px,1.6vw,24px);display:flex;flex-direction:column}.field-decision .muted{font-size:11px;margin:9px 0 12px}.decision-step{flex:1;display:flex;flex-direction:column;gap:11px;min-height:0}.choice-stack{display:flex;flex-direction:column;gap:9px}.option{color:#eaf1ff;background:rgba(13,29,82,.7);border:1px solid rgba(137,165,226,.32);border-radius:11px;text-align:left;padding:10px 12px;display:flex;align-items:center;gap:11px;line-height:1.4;font-size:clamp(11px,1vw,13px);font-weight:650;min-height:48px;transition:transform .15s,border-color .15s,background .15s}.option span{width:27px;height:27px;flex:none;display:grid;place-items:center;border-radius:8px;background:#34488d;color:#e8f1ff;font-weight:1000;font-size:11px}.option:hover:not(:disabled){transform:translateX(3px);border-color:var(--gold)}.option.correct{border-color:var(--green);background:rgba(40,117,88,.3)}.option.correct span{background:#368b69}.option.incorrect{border-color:#ffb29f;background:rgba(133,68,65,.26)}.field-decision .feedback-slot{margin-top:auto;min-height:58px}.small-chain{display:flex;align-items:center;gap:6px;margin:0 0 3px}.small-chain span{flex:1;min-width:0;border-radius:9px;border:1px solid rgba(137,180,253,.27);background:rgba(61,85,157,.26);padding:10px 7px;font-size:10px;font-weight:800;text-align:center}.small-chain b{color:var(--gold)}
+/* Earth */
+.earth-layout{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}.earth-globe-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:0;background:radial-gradient(circle at center,rgba(56,111,177,.17),transparent 65%),var(--panel)}.earth-art{width:min(100%,450px);height:100%;max-height:470px;min-height:260px;display:grid;place-items:center;position:relative}.earth-art img{width:min(94%,400px);max-height:100%;position:relative;z-index:1;animation:float 6s ease-in-out infinite;filter:drop-shadow(0 18px 23px rgba(3,7,26,.28))}.planet-badge{position:absolute;bottom:12%;right:2%;z-index:2;background:rgba(20,37,89,.88);border:1px solid rgba(104,201,255,.52);border-radius:12px;padding:9px 13px;color:#b7d6f5;font-size:9px;font-weight:900;line-height:1.6;letter-spacing:.1em}.planet-badge b{font-size:14px;letter-spacing:.16em;color:#fff}.orbit{position:absolute;width:75%;aspect-ratio:1;border:1px solid rgba(121,208,248,.17);border-radius:50%;box-shadow:0 0 0 27px rgba(67,152,218,.027),0 0 0 55px rgba(67,152,218,.025)}.orbit-two{transform:scale(.85);border-style:dashed;opacity:.47}.earth-art-foot{margin-top:auto;text-align:center;font-size:9px;letter-spacing:.08em;color:#a4b7d9;padding:0 10px 13px}.earth-explore{padding:clamp(14px,1.6vw,23px);display:flex;flex-direction:column;gap:9px}.component-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.component{border:1px solid rgba(144,179,250,.35);background:rgba(15,34,94,.67);border-radius:13px;padding:13px 10px;min-height:74px;display:flex;align-items:center;gap:10px;color:#fff;text-align:left;transition:transform .16s,border-color .16s}.component:hover:not(:disabled){transform:translateY(-2px);border-color:#ffd07e}.component.done{border-color:rgba(137,235,181,.62);background:rgba(40,92,98,.27)}.component.active{border-color:var(--gold);background:rgba(185,120,48,.18)}.component-icon{width:39px;height:39px;flex:none;border-radius:12px;background:rgba(100,156,234,.2);color:#a3e6ff;font-size:24px;display:grid;place-items:center}.component b{font-size:12px;display:block}.component small{font-size:10px;color:#b4c9eb;display:block;margin-top:4px}.component i{font-style:normal;margin-left:auto;font-size:12px;color:#86e8b4}.knowledge-box{background:rgba(11,25,70,.69);border:1px solid rgba(143,169,226,.24);border-radius:12px;padding:13px 15px;min-height:87px;color:#c7d8f6;font-size:12px;line-height:1.6}.knowledge-box .knowledge-heading{color:var(--gold);font-size:10px;font-weight:950;letter-spacing:.12em;margin:0 0 5px}.knowledge-box p:last-child{margin:0}.synthesis h3{font-size:clamp(14px,1.2vw,18px);line-height:1.25;margin:0 0 7px}.synthesis .section-kicker{margin:0 0 6px}.synthesis .choice-stack{gap:7px}.compact .option{font-size:11px;min-height:37px;padding:7px 9px}.synthesis .feedback-slot{margin-top:8px;min-height:43px;padding:8px 10px}.earth-explore .bottom-action{padding-top:5px}
+/* Final */
+.final-layout{flex:1;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:15px;min-height:0}.final-celebrate{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;background:radial-gradient(circle at center 22%,rgba(255,191,87,.17),transparent 50%),var(--panel)}.medal-ring{width:133px;height:133px;border-radius:50%;border:2px solid rgba(255,208,120,.5);display:grid;place-items:center;font-size:27px;color:#ffdc88;letter-spacing:1em;box-shadow:inset 0 0 30px rgba(255,196,88,.08),0 0 0 16px rgba(255,179,84,.05);margin-bottom:23px}.medal-ring span{font-size:54px;letter-spacing:0;filter:drop-shadow(0 0 20px rgba(255,211,115,.37))}.final-celebrate h2{font-size:clamp(25px,3.1vw,43px);line-height:1.1;letter-spacing:-.025em;margin:4px 0 0}.final-celebrate h2 span{display:block;color:var(--gold)}.final-celebrate>p:not(.eyebrow){line-height:1.65;font-size:13px;color:#d4e3fa;max-width:360px}.completion-badges{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:10px}.completion-badges span{font-size:10px;color:#c8ffe2;border:1px solid rgba(128,226,164,.4);background:rgba(55,126,91,.21);padding:7px 9px;border-radius:99px;font-weight:800}.final-report{padding:clamp(15px,1.8vw,27px);display:flex;flex-direction:column;gap:10px}.final-report h3{font-size:clamp(21px,2vw,28px);margin:0 0 3px}.final-facts{display:grid;gap:8px}.final-facts>div{padding:11px 13px;background:rgba(17,32,89,.66);border:1px solid rgba(133,175,238,.21);border-radius:11px}.final-facts b{font-size:12px;color:#ffda95}.final-facts p{font-size:11px;line-height:1.55;color:#c8d7f5;margin:4px 0 0}.lkpd-prompt{border-left:3px solid #ffbc64;background:rgba(255,184,77,.1);padding:9px 13px;margin:2px 0 0;color:#e7ebff;font-size:11px;line-height:1.6}.final-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.final-buttons .btn{padding:11px 14px;font-size:10px;flex:1}.finish-message{font-size:10px;color:#c4d6f5;line-height:1.5}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#91a6cb;font-size:9px;min-height:16px;letter-spacing:.05em}.footer button{padding:0;background:none;border:0;color:#f8c876;font-size:9px;text-decoration:underline}.modal-backdrop{position:fixed;inset:0;background:rgba(2,8,27,.8);display:grid;place-items:center;z-index:20;padding:20px;backdrop-filter:blur(5px)}.modal-card{background:linear-gradient(145deg,#233371,#242157);border:1px solid rgba(255,192,90,.6);border-radius:22px;box-shadow:0 27px 90px rgba(0,0,0,.65);padding:26px;width:min(620px,100%);max-height:90vh;overflow:auto;position:relative}.modal-card h2{margin:0 0 14px;font-size:26px}.modal-card p{color:#cbdaf5;font-size:13px;line-height:1.6}.modal-card b{color:#fff}.modal-card a{display:block;color:#ffd38b;font-weight:800;font-size:12px;margin-bottom:8px;overflow-wrap:anywhere}.modal-card .source-note{color:#9fb6e1;font-size:11px;border-top:1px solid var(--border);padding-top:13px}.modal-close{position:absolute;right:17px;top:12px;border:1px solid rgba(220,230,255,.3);background:rgba(51,63,128,.7);color:white;font-size:25px;width:37px;height:37px;border-radius:12px}.toast{position:fixed;bottom:34px;left:50%;transform:translate(-50%,20px);background:#fff8e3;color:#232451;border-radius:11px;padding:12px 20px;font-size:12px;font-weight:850;box-shadow:0 15px 45px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:30;max-width:min(500px,88vw);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media (max-width:990px){.app-shell{padding:10px 13px 8px;gap:8px}.brand small{font-size:8px}.mission-tag{font-size:9px}.waypoint{min-height:46px;padding:8px}.waypoint small{display:none}.waypoint b{font-size:10px}.stage-heading h2{font-size:26px}.stage-heading p:not(.eyebrow){font-size:11px}.orion-layout,.field-layout,.earth-layout,.final-layout{gap:9px}.interaction-panel,.field-decision,.earth-explore{padding:12px}.pattern-card{min-height:100px}.pattern-card svg{height:62px}.field-illustration{height:150px}.clue{padding:7px 4px}.clue-ico{width:26px;height:30px;font-size:16px}.clue small{display:none}.earth-art{min-height:230px}.earth-art img{width:94%}.component{min-height:61px;padding:9px 7px;gap:6px}.component-icon{width:31px;height:31px;font-size:20px}.final-report{padding:13px}.final-facts>div{padding:8px 11px}.final-facts p{font-size:10px}.medal-ring{width:110px;height:110px}}
+@media (max-width:720px),(max-height:590px){body{overflow-y:auto}.app-shell{height:auto;min-height:100svh}.journey{gap:4px}.waypoint{padding:6px}.waypoint-number{width:24px;height:24px;font-size:10px}.waypoint b{font-size:9px}.mission-tag{display:none}.welcome-grid,.orion-layout,.field-layout,.earth-layout,.final-layout{grid-template-columns:1fr}.welcome-grid{gap:12px}.welcome-copy{padding:13px 4px}.welcome-copy h1{font-size:clamp(34px,8.2vw,59px)}.welcome-scene{height:290px;min-height:250px}.screen{min-height:0}.stage-heading{align-items:start}.mini-counter{padding:7px 9px;font-size:9px}.stage-heading h2{font-size:clamp(24px,5vw,34px)}.sky-view{min-height:280px}.starry-stage{height:230px;flex:none}.interaction-panel{min-height:380px}.field-illustration{height:185px}.field-decision{min-height:390px}.earth-globe-panel{min-height:260px}.earth-art{height:240px;min-height:0}.earth-art img{width:260px}.earth-explore{min-height:420px}.final-report{min-height:450px}.footer{flex-direction:column;align-items:start;font-size:8px}.final-celebrate{min-height:300px}}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Setelah empat kartu dipelajari, ringkas menjadi satu deret agar soal dan tombol tetap tampak di iframe landscape. */
+.earth-explore.synthesis-open .component-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.earth-explore.synthesis-open .component{min-height:38px;padding:7px 5px;display:flex;justify-content:center;text-align:center}
+.earth-explore.synthesis-open .component-icon,.earth-explore.synthesis-open .component small,.earth-explore.synthesis-open .component i{display:none}
+.earth-explore.synthesis-open .component b{font-size:10px}
+@media(max-width:720px),(max-height:590px){.earth-explore.synthesis-open .component-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* --- Revisi responsif & Orion --- */
+html,body{min-height:100%;height:auto}
+body{overflow-y:auto;overflow-x:hidden}
+.app-shell{height:auto;min-height:100svh}
+main{flex:1 1 auto}
+.screen.active{min-height:0}
+.welcome-grid,.orion-layout,.field-layout,.earth-layout,.final-layout{align-items:stretch}
+.welcome-scene,.sky-view,.field-observe,.field-decision,.earth-globe-panel,.earth-explore,.final-celebrate,.final-report{min-height:0}
+.star-svg text,.big-orion text{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:12px;fill:#f6d9a8;font-weight:700;paint-order:stroke;stroke:#15204f;stroke-width:3px;stroke-linejoin:round}
+.big-labels text{font-size:13px}
+.star-dots.orion-full circle,.big-stars.orion-full circle{fill:#f4f8ff;filter:drop-shadow(0 0 6px rgba(222,240,255,.85))}
+.star-dots.orion-full .warm-star,.big-stars.orion-full .warm-star{fill:#ffd2b0}
+.constellation-lines path,.guide path{stroke-linecap:round;stroke-linejoin:round}
+.pattern-card svg{overflow:visible}
+.pattern-card path{fill:none;stroke:#9fd4ff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pattern-card circle{fill:#f3f8ff}
+.pattern-card b{margin-top:2px}
+.topbar,.stage-heading{flex-wrap:wrap}
+.welcome-scene{height:clamp(300px,48vh,560px)}
+.scene-image{background-position:center bottom}
+.welcome-orion{left:33%;top:8%;width:46%;height:58%}
+.big-orion{max-width:min(100%,470px)}
+.panel img{max-width:100%;height:auto;display:block}
+.field-illustration img,.earth-art img{width:100%;height:auto;object-fit:contain}
+.footer{flex-wrap:wrap;gap:8px}
+@media (max-width: 1180px){
+  .welcome-grid,.orion-layout,.field-layout,.earth-layout,.final-layout{grid-template-columns:1fr}
+  .welcome-copy{padding:10px 0}
+  .welcome-scene{order:-1}
+  .bottom-action{justify-content:stretch}
+  .bottom-action .btn{width:100%;min-width:0}
+}
+@media (max-width: 900px){
+  .app-shell{padding:10px 12px 12px}
+  .journey{grid-template-columns:1fr}
+  .mission-tag{order:3;width:100%;text-align:center}
+  .pattern-choices{grid-template-columns:1fr}
+  .component-grid{grid-template-columns:1fr}
+  .choice-stack .option{padding:13px 12px}
+  .welcome-orion{left:26%;width:58%;height:52%}
+  .sky-caption{left:12px;right:12px;bottom:12px}
+}
+@media (max-width: 640px){
+  .brand small{display:none}
+  .brand b{font-size:15px}
+  .top-icon{width:34px;height:34px}
+  .welcome-copy h1{font-size:32px}
+  .stage-heading h2{font-size:26px}
+  .welcome-scene{height:280px}
+  .welcome-orion{left:18%;top:6%;width:70%;height:58%}
+  .star-svg text,.big-orion text{font-size:10px}
+}
+
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-symbol" aria-hidden="true">✦</span>
+      <div><b>PETASA</b><small>PETUALANGAN TATA DAN SURYA</small></div>
+    </div>
+    <div class="top-actions"><span class="mission-tag">MISI 01 <i>•</i> SISTEM TATA SURYA</span><button id="sourcesOpen" class="top-icon" type="button" title="Sumber ilmiah" aria-label="Lihat sumber ilmiah">ⓘ</button><button id="resetTop" class="top-icon" type="button" title="Ulangi aktivitas" aria-label="Ulangi seluruh aktivitas">↻</button></div>
+  </header>
+  <nav class="journey" aria-label="Tahapan penyelidikan">
+    <div class="waypoint" data-track="orion"><span class="waypoint-number">01</span><span><b>JEJAK WALUKU</b><small>Kenali petunjuk langit</small></span></div>
+    <div class="waypoint" data-track="field"><span class="waypoint-number">02</span><span><b>MISTERI SAWAH</b><small>Baca tanda alam</small></span></div>
+    <div class="waypoint" data-track="earth"><span class="waypoint-number">03</span><span><b>JELAJAH BUMI</b><small>Hubungkan kehidupan</small></span></div>
+  </nav>
+  <main id="main">
+    <!-- WELCOME -->
+    <section class="screen active" data-screen="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-grid">
+        <div class="welcome-copy">
+          <p class="eyebrow">LANJUTAN MISI 1 • DARI GALERI BENDA LANGIT</p>
+          <h1 id="welcomeTitle">JEJAK <span>LINTANG WALUKU</span></h1>
+          <p class="welcome-sub">Jelajah Bumi &amp; Pranata Mangsa</p>
+          <div class="story-text">Kita sudah mengenal berbagai benda langit. Kini, mari kembali ke Desa Sumberarum: mengapa petani mengamati <strong>Lintang Waluku</strong>, dan apa kaitannya dengan kondisi yang mendukung kehidupan di Bumi?</div>
+          <div class="feature-row"><span>✦ 3 tantangan ringan</span><span>◈ Pranata Mangsa</span><span>◎ Berpikir sistem</span></div>
+          <button class="btn btn-primary" id="startBtn" type="button">MULAI PETUALANGAN <span>➜</span></button>
+          <p class="aside-note">Tanpa timer dan tanpa hukuman. Baca petunjuk, pikirkan hubungan, lalu lanjutkan.</p>
+        </div>
+        <div class="welcome-scene" role="img" aria-label="Ilustrasi orisinal persawahan malam, langit berbintang, dan pola Orion disederhanakan">
+          <div class="scene-image"></div>
+                    <div class="welcome-orion" aria-hidden="true">
+            <svg viewBox="0 0 420 320" class="star-svg">
+              <g class="constellation-lines">
+                <path d="M128 84 L200 70 L222 130 L158 143 Z"/>
+                <path d="M158 143 L148 238"/>
+                <path d="M222 130 L252 236"/>
+                <path d="M148 238 L250 236"/>
+                <path d="M168 145 L189 148 L209 151"/>
+                <path d="M128 84 L98 36 L76 18"/>
+                <path d="M200 70 L239 30"/>
+                <path d="M222 130 L311 126 L304 188 L291 238"/>
+              </g>
+              <g class="star-dots orion-full">
+                <circle cx="128" cy="84" r="8" class="warm-star"/>
+                <circle cx="200" cy="70" r="6"/>
+                <circle cx="168" cy="145" r="5"/>
+                <circle cx="189" cy="148" r="5"/>
+                <circle cx="209" cy="151" r="5"/>
+                <circle cx="148" cy="238" r="5"/>
+                <circle cx="250" cy="236" r="8"/>
+                <circle cx="98" cy="36" r="4"/>
+                <circle cx="76" cy="18" r="4"/>
+                <circle cx="239" cy="30" r="4"/>
+                <circle cx="311" cy="126" r="4"/>
+                <circle cx="304" cy="188" r="4"/>
+                <circle cx="291" cy="238" r="4"/>
+              </g>
+              <g class="orion-labels">
+                <text x="155" y="166">Alnitak</text>
+                <text x="180" y="182">Alnilam</text>
+                <text x="206" y="150">Mintaka</text>
+                <text x="255" y="257">Rigel</text>
+              </g>
+            </svg>
+          </div>
+          <div class="sky-caption"><span class="caption-dot"></span> DESA SUMBERARUM <small>• LANGIT MALAM</small></div>
+          <div class="scene-glow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 1: ORION -->
+    <section class="screen" data-screen="orion" aria-labelledby="orionTitle">
+      <div class="stage-heading"><div><p class="eyebrow">TAHAP 01 / 03 • MENGINGAT CERITA AWAL</p><h2 id="orionTitle">Temukan <span>Lintang Waluku</span></h2><p>Perhatikan ciri pola bintangnya, lalu pilih gambar yang paling sesuai.</p></div><span class="mini-counter">KEMBALI KE LANGIT MALAM ✦</span></div>
+      <div class="orion-layout">
+        <div class="panel sky-view">
+          <div class="sky-card-top"><span class="little-tag">PENGAMATAN LANGIT</span><span class="twinkle">✦ ✧ ✦</span></div>
+                    <div class="starry-stage" role="img" aria-label="Sketsa Orion: dua bintang bahu, tiga bintang sabuk sejajar, dua bintang kaki, serta lengan dan tameng seperti referensi rasi Orion.">
+            <svg class="big-orion" viewBox="0 0 470 350" aria-hidden="true">
+              <g class="guide" opacity=".3">
+                <path d="M145 92 L225 76 L248 143 L177 156 Z"/>
+                <path d="M177 156 L165 267"/>
+                <path d="M248 143 L285 264"/>
+                <path d="M165 267 L281 264"/>
+                <path d="M188 158 L211 161 L234 164"/>
+                <path d="M145 92 L109 39 L83 18"/>
+                <path d="M225 76 L268 32"/>
+                <path d="M248 143 L350 138 L342 205 L326 265"/>
+              </g>
+              <g class="big-stars orion-full">
+                <circle cx="145" cy="92" r="8" class="warm-star"/>
+                <circle cx="225" cy="76" r="6"/>
+                <circle cx="188" cy="158" r="5"/>
+                <circle cx="211" cy="161" r="6"/>
+                <circle cx="234" cy="164" r="5"/>
+                <circle cx="165" cy="267" r="5"/>
+                <circle cx="281" cy="264" r="8"/>
+                <circle cx="109" cy="39" r="4"/>
+                <circle cx="83" cy="18" r="4"/>
+                <circle cx="268" cy="32" r="4"/>
+                <circle cx="350" cy="138" r="4"/>
+                <circle cx="342" cy="205" r="4"/>
+                <circle cx="326" cy="265" r="4"/>
+              </g>
+              <g id="orionReveal" class="reveal-lines">
+                <path d="M145 92 L225 76 L248 143 L177 156 Z"/>
+                <path d="M177 156 L165 267"/>
+                <path d="M248 143 L285 264"/>
+                <path d="M165 267 L281 264"/>
+                <path d="M188 158 L211 161 L234 164"/>
+                <path d="M145 92 L109 39 L83 18"/>
+                <path d="M225 76 L268 32"/>
+                <path d="M248 143 L350 138 L342 205 L326 265"/>
+              </g>
+              <g class="orion-labels big-labels">
+                <text x="173" y="178">Alnitak</text>
+                <text x="203" y="196">Alnilam</text>
+                <text x="230" y="160">Mintaka</text>
+                <text x="286" y="286">Rigel</text>
+              </g>
+            </svg>
+          </div>
+          <div class="sky-help" id="skyCaption">Petunjuk: amati susunan bintang yang tampak seperti <strong>tiga bintang berjajar</strong> di tengah pola.</div>
+        </div>
+        <div class="panel interaction-panel">
+          <p class="section-kicker">TANTANGAN PENGAMATAN</p>
+          <h3>Pola mana yang kamu ingat dari komik?</h3>
+          <p class="muted">Pilih satu gambar. Ini adalah sketsa pola bintang, bukan foto langit.</p>
+          <div class="pattern-choices" id="patternChoices">
+            <button type="button" class="pattern-card" data-pattern="0" aria-label="Pilih pola A"><svg viewBox="0 0 110 85" aria-hidden="true"><path d="M56 13 25 52 56 72 85 52 56 13"/><circle cx="56" cy="13" r="4"/><circle cx="25" cy="52" r="4"/><circle cx="56" cy="72" r="4"/><circle cx="85" cy="52" r="4"/><circle cx="56" cy="51" r="4"/></svg><b>A</b></button>
+            <button type="button" class="pattern-card" data-pattern="1" aria-label="Pilih pola B"><svg viewBox="0 0 130 95" aria-hidden="true"><path d="M36 24 L63 18 L72 41 L47 45 Z"/><path d="M47 45 L44 76"/><path d="M72 41 L85 75"/><path d="M44 76 L84 75"/><path d="M51 46 L59 47 L67 48"/><path d="M36 24 L24 8 L17 2"/><path d="M63 18 L79 5"/><path d="M72 41 L106 40 L103 60 L98 82"/><circle cx="36" cy="24" r="3.6"/><circle cx="63" cy="18" r="3.6"/><circle cx="51" cy="46" r="3.2"/><circle cx="59" cy="47" r="3.5"/><circle cx="67" cy="48" r="3.2"/><circle cx="44" cy="76" r="3.2"/><circle cx="84" cy="75" r="4"/><circle cx="24" cy="8" r="2.6"/><circle cx="17" cy="2" r="2.4"/><circle cx="79" cy="5" r="2.4"/><circle cx="106" cy="40" r="2.4"/><circle cx="103" cy="60" r="2.4"/><circle cx="98" cy="82" r="2.4"/></svg><b>B</b></button>
+            <button type="button" class="pattern-card" data-pattern="2" aria-label="Pilih pola C"><svg viewBox="0 0 110 85" aria-hidden="true"><path d="M19 19 45 32 72 16 91 37 67 62 39 75"/><circle cx="19" cy="19" r="4"/><circle cx="45" cy="32" r="4"/><circle cx="72" cy="16" r="4"/><circle cx="91" cy="37" r="4"/><circle cx="67" cy="62" r="4"/><circle cx="39" cy="75" r="4"/></svg><b>C</b></button>
+          </div>
+          <div id="orionFeedback" class="feedback-slot" aria-live="polite">Pilih salah satu sketsa untuk mengungkap petunjuk Waluku.</div>
+          <div class="bottom-action"><button class="btn btn-primary" type="button" id="orionContinue" disabled>LANJUT KE MISTERI SAWAH ➜</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 2: FIELD -->
+    <section class="screen" data-screen="field" aria-labelledby="fieldTitle">
+      <div class="stage-heading"><div><p class="eyebrow">TAHAP 02 / 03 • PRANATA MANGSA DALAM KEHIDUPAN</p><h2 id="fieldTitle">Misteri <span>Sawah Sumberarum</span></h2><p>Satu tanda langit belum cukup. Kumpulkan petunjuk sebelum membantu petani mengambil keputusan.</p></div><span class="mini-counter" id="clueCount">PETUNJUK 0 / 3</span></div>
+      <div class="field-layout">
+        <div class="panel field-observe">
+          <div class="field-illustration" role="img" aria-label="Sawah Desa Sumberarum digambarkan kering karena belum cukup hujan"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDcwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJJbHVzdHJhc2kgb3Jpc2luYWwgc2F3YWggRGVzYSBTdW1iZXJhcnVtIHBhZGEgbWFsYW0gaGFyaSI+CjxkZWZzPgogPGxpbmVhckdyYWRpZW50IGlkPSJza3kiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzEyMWI1NCIvPjxzdG9wIG9mZnNldD0iLjQ5IiBzdG9wLWNvbG9yPSIjM2MyZDc5Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODU0Njc2Ii8+PC9saW5lYXJHcmFkaWVudD4KIDxsaW5lYXJHcmFkaWVudCBpZD0iZWFydGgiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzNjNWU4MiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFiMmQ1MCIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImZpZWxkIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMyZDUzNjMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxMDFlNDMiLz48L2xpbmVhckdyYWRpZW50PgogPHJhZGlhbEdyYWRpZW50IGlkPSJnbG93Ij48c3RvcCBzdG9wLWNvbG9yPSIjZmZmNGQ0IiBzdG9wLW9wYWNpdHk9Ii42NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZThiZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KIDxwYXR0ZXJuIGlkPSJzdGFycyIgd2lkdGg9IjE0NyIgaGVpZ2h0PSIxMjciIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxjaXJjbGUgY3g9IjE0IiBjeT0iMjEiIHI9IjEuNCIgZmlsbD0iI2U3ZThmZiIgb3BhY2l0eT0iLjciLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjY5IiByPSIuOSIgZmlsbD0iI2E3YzZmZiIgb3BhY2l0eT0iLjc1Ii8+PGNpcmNsZSBjeD0iMTI0IiBjeT0iMTgiIHI9IjEuMSIgZmlsbD0iI2ZmZjVjZiIgb3BhY2l0eT0iLjciLz48Y2lyY2xlIGN4PSIzNyIgY3k9IjEwMCIgcj0iLjciIGZpbGw9IiNmYmY0ZmYiIG9wYWNpdHk9Ii42NiIvPjwvcGF0dGVybj4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MDAiIGZpbGw9InVybCgjc2t5KSIvPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjUyMCIgZmlsbD0idXJsKCNzdGFycykiLz4KPGNpcmNsZSBjeD0iOTczIiBjeT0iMTY3IiByPSIxNDQiIGZpbGw9InVybCgjZ2xvdykiIG9wYWNpdHk9Ii4yIi8+PGNpcmNsZSBjeD0iOTczIiBjeT0iMTY3IiByPSI0NyIgZmlsbD0iI2ZmZThiZiIgb3BhY2l0eT0iLjcyIi8+PGNpcmNsZSBjeD0iOTk0IiBjeT0iMTUyIiByPSI0MyIgZmlsbD0iIzM5MmI3MiIvPgo8cGF0aCBkPSJNMCA0MjEgMTAwIDM0MCAyMDggMzk5IDMyNCAyODUgNDQzIDQwNCA1NzkgMzI1IDcxNCAzOTIgODM2IDMwMSA5NjYgMzkyIDEwOTAgMzI5IDEyMDAgNDAzVjcwMEgwWiIgZmlsbD0iIzQ0NDA2ZiIgb3BhY2l0eT0iLjU2Ii8+CjxwYXRoIGQ9Ik0wIDQ3NSAxNTMgMzg5IDMxMiA0NTkgNDU1IDM2NiA2MjQgNDQ3IDc3MSAzODAgOTQxIDQ0MiAxMDcwIDM2MiAxMjAwIDQyOFY3MDBIMFoiIGZpbGw9IiMyYjNhNjUiLz4KPHBhdGggZD0iTTAgNTA4IFExNzUgNDU4IDM2OSA1MDBUNzY4IDQ5M1QxMjAwIDQ4NVY3MDBIMFoiIGZpbGw9InVybCgjZWFydGgpIi8+CjxwYXRoIGQ9Ik0wIDU2MSBDMTgyIDUwMyAzMjUgNTMyIDUwMiA1NjhTOTE4IDUxMiAxMjAwIDU0MVY3MDBIMFoiIGZpbGw9InVybCgjZmllbGQpIi8+CjxnIHN0cm9rZT0iIzc4YTZhNSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIuMjgiIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik0wIDYxMCBRMjU3IDU1MiA1MjggNjAxVDEyMDAgNTkwIi8+PHBhdGggZD0iTTAgNjU2IFEyODEgNTgzIDU1NiA2NDNUMTIwMCA2MzYiLz48cGF0aCBkPSJNMTg1IDU0NCA2NSA3MDBNNDE2IDU2NCAzMTYgNzAwTTY3MCA1NTUgNjI4IDcwME05MDAgNTUwIDk0MSA3MDBNMTA5MCA1NDMgMTE5NyA3MDAiLz48L2c+CjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzc2YTY4YiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9Ii42MiI+CiA8cGF0aCBkPSJNMjggNjQwbC02LTE1bTYgMTUgOS0yMW0tOSAyMS0xLTMwTTcyIDYwNGwtNi0xNG02IDE0IDEwLTE3bS0xMCAxNyAxLTI1TTExOCA2ODBsLTUtMThtNSAxOCAxMC0xOG0tMTAgMTggMC0yN00xNjAgNjM1bC01LTE3bTUgMTcgMTItMThtLTEyIDE4IDItMjhNMjM3IDY3M2wtNi0xNm02IDE2IDExLTE4bS0xMSAxOC0xLTI4TTI4NSA2MThsLTUtMTJtNSAxMiA5LTE1TTM4MSA2NzRsLTktMTZtOSAxNiAxMy0xOG0tMTMgMTggMi0yOE00NjUgNjM2bC03LTE2bTcgMTYgOS0xOG0tOSAxOCAxLTI2TTU0NyA2NzRsLTYtMTRtNiAxNCA4LTIxTTYxMCA2MTFsLTYtMTFtNiAxMSA3LTE0TTY5NSA2NzFsLTYtMTZtNiAxNiAxMC0xN003NzMgNjMwbC01LTE3bTUgMTcgMTMtMTdtLTEzIDE3LTEtMjVNODYwIDY3OWwtNi0xNW02IDE1IDgtMTVNOTQwIDYxNmwtOC0xNG04IDE0IDEwLTE0TTEwMDYgNjczbC01LTEzbTUgMTMgMTEtMTdtLTExIDE3LTItMjdNMTExMSA2MzBsLTYtMTdtNiAxNyAxMS0xOG0tMTEgMTggMi0yOE0xMTY0IDY3OWwtNC0xOG00IDE4IDktMjEiLz4KPC9nPgo8ZyBmaWxsPSIjMGUxOTQwIiBvcGFjaXR5PSIuODgiPjxwYXRoIGQ9Ik00MCA1NDdWMzcxaDl2MTc2TTEyIDM4OXEyOC02MiA2Mi00bC0zNS03ek04IDQwMnEzNC0zNSA3Ny00bC00NC05eiIvPjxwYXRoIGQ9Ik0xMTM2IDU1NVYzNTBoMTB2MjA1TTExMDQgMzcxcTM1LTY0IDczIDJsLTM2LTE0ek0xMDk1IDM5N3E0MS00NSA5MSAxbC00My0xMXoiLz48L2c+CjxwYXRoIGQ9Ik0xMjAwIDcwMEgwVjY4OGMxNzUtMjQgMzI2LTE0IDUxNC00IDI1NSAxMiA0MDUtNDIgNjg2LTF6IiBmaWxsPSIjMGIxNDMxIiBvcGFjaXR5PSIuNDUiLz4KPC9zdmc+Cg==" alt="Ilustrasi orisinal sawah Desa Sumberarum pada malam hari"><div class="field-overlay"><span>DESA SUMBERARUM</span><b>Hujan belum cukup • Tanah kering</b></div></div>
+          <p class="section-kicker">BUKA TIGA BUKTI</p>
+          <div class="clue-row">
+            <button class="clue" type="button" data-clue="star"><span class="clue-ico">✦</span><span><strong>Waluku</strong><small>Petunjuk waktu</small></span><span class="clue-check">○</span></button>
+            <button class="clue" type="button" data-clue="rain"><span class="clue-ico">☂</span><span><strong>Hujan</strong><small>Belum cukup</small></span><span class="clue-check">○</span></button>
+            <button class="clue" type="button" data-clue="soil"><span class="clue-ico">❀</span><span><strong>Tanah</strong><small>Masih kering</small></span><span class="clue-check">○</span></button>
+          </div>
+          <div class="clue-detail" id="clueDetail" aria-live="polite"><b>Ketuk satu bukti.</b><span>Perhatikan apa yang diamati petani dan apa artinya bagi kegiatan bertani.</span></div>
+        </div>
+        <div class="panel field-decision">
+          <div class="decision-step" id="farmerDecision">
+            <p class="section-kicker">TANTANGAN 1 • MENENTUKAN KEPUTUSAN</p>
+            <h3>Waluku sudah diamati, tetapi sawah masih kering. Apa yang sebaiknya dilakukan petani?</h3>
+            <p class="muted">Buka semua bukti terlebih dahulu, lalu pilih jawaban.</p>
+            <div class="choice-stack" id="decisionChoices">
+              <button type="button" class="option" data-decision="0" disabled><span>A</span>Segera menanam karena Waluku sudah diamati.</button>
+              <button type="button" class="option" data-decision="1" disabled><span>B</span>Memeriksa hujan, kondisi tanah, dan air irigasi sebelum menanam.</button>
+              <button type="button" class="option" data-decision="2" disabled><span>C</span>Mengabaikan petunjuk alam dan memilih tanggal secara acak.</button>
+            </div>
+            <div id="decisionFeedback" class="feedback-slot" aria-live="polite">Petunjuk akan terbuka setelah tiga bukti dikumpulkan.</div>
+            <button type="button" class="btn btn-outline" id="toRelation" hidden>LANJUT: BAGAIMANA JIKA HUJAN BERKURANG? ➜</button>
+          </div>
+          <div class="decision-step" id="rainRelation" hidden>
+            <p class="section-kicker">TANTANGAN 2 • HUBUNGAN SEBAB-AKIBAT</p>
+            <h3>Jika hujan terus berkurang dan tidak ada tambahan air irigasi, apa yang mungkin terjadi?</h3>
+            <div class="small-chain"><span>Hujan berkurang</span><b>➜</b><span>Air di tanah ...?</span><b>➜</b><span>Padi terdampak</span></div>
+            <div class="choice-stack" id="relationChoices">
+              <button class="option" type="button" data-relation="0"><span>A</span>Air di tanah cenderung berkurang, sehingga pertumbuhan padi dapat terhambat.</button>
+              <button class="option" type="button" data-relation="1"><span>B</span>Air di tanah bertambah, sehingga tanaman selalu tumbuh lebih cepat.</button>
+              <button class="option" type="button" data-relation="2"><span>C</span>Kebutuhan air padi hilang karena hujan semakin jarang.</button>
+            </div>
+            <div id="relationFeedback" class="feedback-slot" aria-live="polite">Prediksi akibat perubahan curah hujan berdasarkan hubungan antarkomponen.</div>
+          </div>
+          <div class="bottom-action"><button id="fieldContinue" class="btn btn-primary" type="button" disabled>LANJUT JELAJAH BUMI ➜</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 3: EARTH -->
+    <section class="screen" data-screen="earth" aria-labelledby="earthTitle">
+      <div class="stage-heading"><div><p class="eyebrow">TAHAP 03 / 03 • BUKTI PENDUKUNG KEHIDUPAN</p><h2 id="earthTitle">Rahasia <span>Kehidupan di Bumi</span></h2><p>Kenali komponen Bumi, lalu pikirkan bagaimana kondisi-kondisi tersebut saling berkaitan.</p></div><span class="mini-counter" id="earthCount">KOMPONEN 0 / 4</span></div>
+      <div class="earth-layout">
+        <div class="panel earth-globe-panel">
+          <div class="earth-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NjAgNTYwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IklsdXN0cmFzaSBza2VtYXRpcyBCdW1pLCBidWthbiBmb3RvIE5BU0EiPgogPGRlZnM+CiA8cmFkaWFsR3JhZGllbnQgaWQ9Im9jZWFuIiBjeD0iLjM1IiBjeT0iLjI5IiByPSIuNyI+PHN0b3Agc3RvcC1jb2xvcj0iIzRjZDNlZSIvPjxzdG9wIG9mZnNldD0iLjQ1IiBzdG9wLWNvbG9yPSIjMjQ3YWQ0Ii8+PHN0b3Agb2Zmc2V0PSIuOCIgc3RvcC1jb2xvcj0iIzE5NDE4ZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBhMjQ1YiIvPjwvcmFkaWFsR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImxhbmQiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjOTRkODg3Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMmU5MjZlIi8+PC9saW5lYXJHcmFkaWVudD4KIDxyYWRpYWxHcmFkaWVudCBpZD0iaGFsbyI+PHN0b3Agc3RvcC1jb2xvcj0iIzQ3YmRmZiIgc3RvcC1vcGFjaXR5PSIuMyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQ3YmRmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KIDxjbGlwUGF0aCBpZD0iY3JvcCI+PGNpcmNsZSBjeD0iMjgwIiBjeT0iMjgwIiByPSIyMDYiLz48L2NsaXBQYXRoPgogPC9kZWZzPgogPGNpcmNsZSBjeD0iMjgwIiBjeT0iMjgwIiByPSIyNzciIGZpbGw9InVybCgjaGFsbykiLz48Y2lyY2xlIGN4PSIyODAiIGN5PSIyODAiIHI9IjIyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGRkYWZlIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9Ii42MiIvPjxjaXJjbGUgY3g9IjI4MCIgY3k9IjI4MCIgcj0iMjA2IiBmaWxsPSJ1cmwoI29jZWFuKSIvPgogPGcgY2xpcC1wYXRoPSJ1cmwoI2Nyb3ApIj4KICA8cGF0aCBmaWxsPSJ1cmwoI2xhbmQpIiBkPSJNMTY1IDEwNGMtMTQgNC0yOCAxOC0yMiAzM2wxOCA5IDcgMjYtMjcgMjMtMzQgNS0zIDIxIDE3IDIwIDI0LTUgMjcgMjkgMzMgNyA4IDQwIDM4IDYgMTYtMzAtMTItMzYgMTItMjQtMTgtMjQgNy0zNi0yMS0xNy0xLTI0LTMwLTEwLTgtMjZ6TTI0MiA5NmwyMiAyOC01IDM0IDE2IDE5IDMzIDggMjItMjQgMzQgNiAyNiAzMS0xNiAzMi0zNCAxNC0xMiAzOS0yNCAxMC03IDI5LTM1LTEzLTExLTI4LTMwLTExLTgtMzMtMTktMTMgMTctMzctMTEtMzd6TTM2NiAyNzhsMzMtOSAzMyAyMiAyOS0xMCAzMyAzNC0xNCAzNi0xOCAxMC0xMyAzNy0zMiA4LTE5IDI5LTI4LTE0LTEzLTMyLTIyLTIyIDktNDMtMTEtMjF6TTIwNCAzNjZsMzkgMTYgMTggMzIgMTIgMjAtMTYgNDctMzMtNy0yMC0yOS0xMS0xNnoiLz4KICA8cGF0aCBmaWxsPSIjYjNlMWEwIiBvcGFjaXR5PSIuNSIgZD0iTTE0OCAxNDFsMzEgMjIgMTUgMzItMzIgMTMtMTgtMTl6TTMwMCAxODdsMjUtMTggMjAgMTQtMTcgMjl6TTM3MyAzMThsMzktMTEgOCAyOC0yNiAxNXoiLz4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmMWZiZmYiIG9wYWNpdHk9Ii42NiIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNODAgMjA3YzM3LTI3IDcwLTIzIDEwNC0xNiIvPjxwYXRoIGQ9Ik0yOTAgMTE2YzMzLTEyIDU1LTcgODAgOSIvPjxwYXRoIGQ9Ik0zNjUgMjQyYzQ2LTcgNjAgOCA5MCA5Ii8+PHBhdGggZD0iTTE5MSAzMzdjNDAgMSA2NSAxOCA4MyAyNSIvPjxwYXRoIGQ9Ik0zMjUgNDQzYzQwIDAgNjkgMTIgOTMgMCIvPjwvZz4KICA8ZWxsaXBzZSBjeD0iMTkwIiBjeT0iMTM5IiByeD0iMTM1IiByeT0iNzUiIGZpbGw9IiNiM2Y0ZmYiIG9wYWNpdHk9Ii4xIiB0cmFuc2Zvcm09InJvdGF0ZSgtMzQgMTkwIDEzOSkiLz4KICA8cGF0aCBkPSJNMzQ1IDc2YzEwNSA3MCAxNTAgMjI1IDk2IDMzMi0yNSA0OS00OCA2Ni05OSA4MCAxMDItNjAgMTMxLTE2NiAxMTAtMjcyLTEzLTY3LTUzLTExMS0xMDctMTQwWiIgZmlsbD0iIzBkMWQ0OCIgb3BhY2l0eT0iLjQ1Ii8+CiA8L2c+CiA8Y2lyY2xlIGN4PSIyODAiIGN5PSIyODAiIHI9IjIwNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDRmYWZmIiBzdHJva2Utd2lkdGg9IjQiIG9wYWNpdHk9Ii42NSIvPgogPGcgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjg1Ij48Y2lyY2xlIGN4PSI1NCIgY3k9IjE2NiIgcj0iMiIvPjxjaXJjbGUgY3g9IjQ4NyIgY3k9IjEwNCIgcj0iMyIvPjxjaXJjbGUgY3g9IjQ3NiIgY3k9IjQ1MyIgcj0iMiIvPjxjaXJjbGUgY3g9IjkzIiBjeT0iNDY4IiByPSIyIi8+PC9nPgo8L3N2Zz4K" alt="Ilustrasi skematis planet Bumi dengan daratan, lautan dan atmosfer; bukan foto NASA"><span class="planet-badge">PLANET KETIGA<br><b>BUMI</b></span></div>
+          <div class="earth-art-foot">ILUSTRASI SKEMATIS • BUKAN FOTO NASA</div>
+        </div>
+        <div class="panel earth-explore">
+          <p class="section-kicker">KLIK 4 KOMPONEN BUMI</p>
+          <div class="component-grid" id="componentGrid">
+            <button class="component" type="button" data-component="water"><span class="component-icon">≈</span><span><b>Air cair</b><small>Proses kehidupan</small></span><i>○</i></button>
+            <button class="component" type="button" data-component="atmosphere"><span class="component-icon">☷</span><span><b>Atmosfer</b><small>Selimut gas</small></span><i>○</i></button>
+            <button class="component" type="button" data-component="temperature"><span class="component-icon">◷</span><span><b>Suhu &amp; tekanan</b><small>Kondisi air</small></span><i>○</i></button>
+            <button class="component" type="button" data-component="sun"><span class="component-icon">☀</span><span><b>Energi Matahari</b><small>Sumber energi</small></span><i>○</i></button>
+          </div>
+          <div class="knowledge-box" id="knowledgeBox" aria-live="polite"><p class="knowledge-heading">PILIH SATU KOMPONEN</p><p>Temukan perannya di Bumi. Setelah keempatnya terbuka, tantangan hubungan antarkomponen akan muncul.</p></div>
+          <div id="earthSynthesis" class="synthesis" hidden>
+            <p class="section-kicker">TANTANGAN AKHIR • MENGHUBUNGKAN KOMPONEN</p>
+            <h3>Mengapa air cair bisa bertahan di banyak wilayah permukaan Bumi?</h3>
+            <div id="synthesisChoices" class="choice-stack compact">
+              <button class="option" type="button" data-synthesis="0"><span>A</span>Karena suhu dan tekanan permukaannya memungkinkan air berada dalam wujud cair.</button>
+              <button class="option" type="button" data-synthesis="1"><span>B</span>Karena Bumi merupakan satu-satunya planet yang menerima cahaya Matahari.</button>
+              <button class="option" type="button" data-synthesis="2"><span>C</span>Karena keberadaan air cair tidak dipengaruhi kondisi lingkungan.</button>
+            </div>
+            <div id="synthesisFeedback" class="feedback-slot" aria-live="polite">Pilih hubungan yang paling tepat berdasarkan hasil jelajahmu.</div>
+          </div>
+          <div class="bottom-action"><button type="button" class="btn btn-primary" id="earthContinue" disabled>LIHAT HASIL PENYELIDIKAN ➜</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- END -->
+    <section class="screen" data-screen="final" aria-labelledby="finalTitle">
+      <div class="final-layout">
+        <div class="panel final-celebrate"><div class="medal-ring">✧<span>✦</span>✧</div><p class="eyebrow">SELURUH TANTANGAN SELESAI</p><h2 id="finalTitle">MISI KECIL <span>BERHASIL!</span></h2><p>Kamu sudah menghubungkan pengamatan langit, tanda alam, dan kondisi yang mendukung kehidupan di Bumi.</p><div class="completion-badges"><span>✓ Lintang Waluku</span><span>✓ Keputusan petani</span><span>✓ Komponen Bumi</span></div></div>
+        <div class="panel final-report"><p class="section-kicker">RANGKUMAN PENYELIDIKAN</p><h3>Semua saling berkaitan!</h3><div class="final-facts"><div><b>✦ Petunjuk langit</b><p>Lintang Waluku dimanfaatkan sebagai salah satu petunjuk waktu dalam tradisi Pranata Mangsa.</p></div><div><b>☂ Petunjuk lingkungan</b><p>Keputusan bertani juga memerlukan informasi hujan, tanah, dan ketersediaan air.</p></div><div><b>◎ Kondisi Bumi</b><p>Air cair, atmosfer, suhu, tekanan, dan energi Matahari saling berperan dalam lingkungan yang mendukung kehidupan.</p></div></div><p class="lkpd-prompt"><b>Catat di LKPD:</b> Mengapa satu tanda alam saja belum cukup untuk menentukan waktu tanam? Jelaskan satu hubungan antarkomponen Bumi.</p><div class="final-buttons"><button id="copyLKPD" type="button" class="btn btn-outline">SALIN PERTANYAAN LKPD</button><button id="finishBtn" type="button" class="btn btn-primary">SELESAI • KEMBALI KE PETASA ➜</button></div><div class="finish-message" id="finishMessage" aria-live="polite">Selanjutnya: bandingkan kondisi Venus, Bumi, dan Mars dalam Planet Detective.</div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>© PETASA • MISI 1 | RANCANGAN PEMBELAJARAN KELAS VII</span><span>Ilustrasi orisinal • Referensi konsep: <button type="button" id="sourcesFooter">BRIN &amp; NASA ↗</button></span></footer>
+</div>
+<div class="modal-backdrop" id="sourceModal" hidden><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="sourceTitle"><button type="button" class="modal-close" id="sourcesClose" aria-label="Tutup sumber">×</button><p class="eyebrow">CATATAN SUMBER</p><h2 id="sourceTitle">Landasan materi &amp; ilustrasi</h2><p><b>Pranata Mangsa &amp; Lintang Waluku:</b> rujukan BRIN tentang penggunaan Waluku/Orion dan tanda alam dalam pengetahuan tradisional Jawa.</p><a target="_blank" rel="noopener noreferrer" href="https://penerbit.brin.go.id/press/catalog/book/691">BRIN — Pranata Mangsa dalam Tinjauan Sains ↗</a><p><b>Orion:</b> NASA menjelaskan ciri sabuk tiga bintang, Betelgeuse, dan Rigel.</p><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/">NASA — Discovering the Universe Through Orion ↗</a><p><b>Bumi:</b> konsep air cair, atmosfer, dan energi Matahari didasarkan pada NASA Science.</p><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/earth/facts/">NASA — Facts About Earth ↗</a><p class="source-note">Seluruh gambar dalam web ini adalah ilustrasi SVG orisinal. Pola Orion bersifat skematis dan disederhanakan untuk pembelajaran, bukan peta langit berskala atau foto NASA. Skenario sawah adalah kasus hipotetis untuk latihan berpikir sistem, bukan laporan kondisi aktual Desa Sumberarum.</p></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const $$ = s => [...document.querySelectorAll(s)];
+const state = {screen:'welcome',orion:false,clues:new Set(),decision:false,relation:false,scanned:new Set(),synthesis:false,finished:false};
+const clueData={
+  star:{title:'✦ Waluku — petunjuk waktu',text:'Lintang Waluku adalah pola bintang yang berkaitan dengan Orion. Dalam tradisi Pranata Mangsa, pengamatannya dapat menjadi salah satu petunjuk waktu untuk kegiatan pertanian. Pola bintang tidak menyebabkan hujan.'},
+  rain:{title:'☂ Hujan — keadaan lingkungan',text:'Dalam skenario ini, hujan belum turun cukup. Petani perlu memeriksa curah hujan dan sumber air lain karena padi memerlukan air untuk tumbuh.'},
+  soil:{title:'❀ Tanah — kondisi lahan',text:'Tanah sawah masih kering. Kondisi tanah dan ketersediaan air perlu diperiksa sebelum menentukan waktu tanam. Kebutuhan tanaman juga dipengaruhi pengelolaan lahan.'}
+};
+const components={
+ water:{title:'AIR CAIR',text:'Bumi memiliki banyak air cair di permukaannya. Air dibutuhkan untuk berbagai proses kehidupan yang kita kenal, termasuk pertumbuhan tumbuhan. Keberadaan air cair berkaitan dengan suhu dan tekanan.'},
+ atmosphere:{title:'ATMOSFER',text:'Atmosfer adalah lapisan gas yang menyelimuti Bumi. Komposisi gasnya memengaruhi efek rumah kaca dan suhu, sementara tekanan atmosfer turut menentukan keadaan air di permukaan.'},
+ temperature:{title:'SUHU & TEKANAN',text:'Suhu dan tekanan bersama-sama memengaruhi apakah air dapat bertahan dalam wujud cair. Di banyak wilayah Bumi, kondisinya memungkinkan air cair bertahan pada permukaan.'},
+ sun:{title:'ENERGI MATAHARI',text:'Energi Matahari membantu menghangatkan Bumi dan menggerakkan banyak proses lingkungan. Cahaya Matahari juga menyediakan energi untuk fotosintesis pada tumbuhan.'}
+};
+let toastTimer;
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2400);}
+function show(screen){state.screen=screen;$$('.screen').forEach(el=>{const yes=el.dataset.screen===screen;el.classList.toggle('active',yes);el.setAttribute('aria-hidden',String(!yes))});const order=['orion','field','earth'];const n=order.indexOf(screen);$$('.waypoint').forEach((el,i)=>{el.classList.toggle('active',i===n);el.classList.toggle('complete',n>i||screen==='final')});window.scrollTo?.(0,0);}
+$('startBtn').addEventListener('click',()=>show('orion'));
+$$('.pattern-card').forEach(card=>card.addEventListener('click',()=>{
+ if(state.orion)return;
+ $$('.pattern-card').forEach(b=>b.classList.remove('picked','wrong'));
+ card.classList.add('picked');
+ if(card.dataset.pattern!=='1'){
+   card.classList.add('wrong');
+   $('orionFeedback').className='feedback-slot attention';
+   $('orionFeedback').innerHTML='<b>Belum sesuai.</b> Ingat ciri tiga bintang yang tampak berjajar di bagian tengah pola Orion. Coba pilih lagi.';
+   return;
+ }
+ state.orion=true;card.classList.add('right');$('orionReveal').classList.add('shown');
+ $('skyCaption').innerHTML='<strong>Terungkap!</strong> Sketsa ini memperlihatkan tiga bintang Sabuk Orion yang tampak berderet. Lintang Waluku berkaitan dengan pola bintang Orion.';
+ $('orionFeedback').className='feedback-slot good';
+ $('orionFeedback').innerHTML='<b>Lintang Waluku ditemukan!</b> Dalam tradisi Jawa, pengamatannya menjadi salah satu petunjuk waktu. Pranata Mangsa membagi tahun menjadi 12 mangsa dan memperhatikan tanda alam lain, seperti hujan, angin, tumbuhan, serta hewan.';
+ $$('.pattern-card').forEach(b=>b.disabled=true);$('orionContinue').disabled=false;toast('Petunjuk Waluku berhasil ditemukan!');
+}));
+$('orionContinue').addEventListener('click',()=>{if(state.orion)show('field')});
+$$('.clue').forEach(card=>card.addEventListener('click',()=>{
+ const id=card.dataset.clue;
+ state.clues.add(id);card.classList.add('done');card.querySelector('.clue-check').textContent='✓';
+ const c=clueData[id];$('clueDetail').innerHTML=`<b>${c.title}</b><span>${c.text}</span>`;
+ $('clueCount').textContent=`PETUNJUK ${state.clues.size} / 3`;
+ if(state.clues.size===3 && !state.decision){$$('[data-decision]').forEach(b=>b.disabled=false);$('decisionFeedback').className='feedback-slot good';$('decisionFeedback').innerHTML='<b>Semua bukti terkumpul.</b> Pilih tindakan petani berdasarkan gabungan informasi, bukan hanya satu tanda.';toast('Tiga petunjuk terbuka! Saatnya mengambil keputusan.');}
+}));
+$$('[data-decision]').forEach(b=>b.addEventListener('click',()=>{
+ if(state.decision||state.clues.size!==3)return;
+ $$('[data-decision]').forEach(x=>x.classList.remove('incorrect','correct'));
+ if(b.dataset.decision!=='1'){
+   b.classList.add('incorrect');$('decisionFeedback').className='feedback-slot attention';$('decisionFeedback').innerHTML='<b>Belum tepat.</b> Lintang Waluku adalah petunjuk waktu tradisional, tetapi kondisi hujan, lahan, dan air tetap harus diperiksa. Coba lagi.';return;
+ }
+ state.decision=true;b.classList.add('correct');$$('[data-decision]').forEach(x=>x.disabled=true);
+ $('decisionFeedback').className='feedback-slot good';$('decisionFeedback').innerHTML='<b>Keputusan tepat!</b> Petani perlu menggabungkan berbagai tanda alam. Kemunculan bintang tidak secara langsung menentukan apakah air sudah tersedia di sawah.';
+ $('toRelation').hidden=false;toast('Keputusan berdasarkan berbagai petunjuk!');
+}));
+$('toRelation').addEventListener('click',()=>{if(!state.decision)return;$('farmerDecision').hidden=true;$('rainRelation').hidden=false;});
+$$('[data-relation]').forEach(b=>b.addEventListener('click',()=>{
+ if(state.relation)return;
+ $$('[data-relation]').forEach(x=>x.classList.remove('incorrect','correct'));
+ if(b.dataset.relation!=='0'){
+   b.classList.add('incorrect');$('relationFeedback').className='feedback-slot attention';$('relationFeedback').innerHTML='<b>Coba pikirkan kembali.</b> Padi tetap memerlukan air. Jika hujan berkurang, perkirakan apa yang terjadi pada ketersediaan air di tanah.';return;
+ }
+ state.relation=true;b.classList.add('correct');$$('[data-relation]').forEach(x=>x.disabled=true);
+ $('relationFeedback').className='feedback-slot good';$('relationFeedback').innerHTML='<b>Hubungan ditemukan!</b> Jika hujan berkurang dan tidak ada tambahan air, tanah dapat semakin kering sehingga pertumbuhan padi terhambat. Ini contoh perubahan satu komponen memengaruhi komponen lain.';
+ $('fieldContinue').disabled=false;toast('Bagus! Kamu berhasil memprediksi perubahan sistem.');
+}));
+$('fieldContinue').addEventListener('click',()=>{if(state.relation)show('earth')});
+$$('.component').forEach(b=>b.addEventListener('click',()=>{
+ const id=b.dataset.component;state.scanned.add(id);
+ $$('.component').forEach(x=>x.classList.remove('active'));b.classList.add('active','done');b.querySelector('i').textContent='✓';
+ $('earthCount').textContent=`KOMPONEN ${state.scanned.size} / 4`;
+ const info=components[id];$('knowledgeBox').innerHTML=`<p class="knowledge-heading">${info.title}</p><p>${info.text}</p>`;
+ if(state.scanned.size===4 && !state.synthesis){$('knowledgeBox').hidden=true;$('earthSynthesis').hidden=false;document.querySelector('.earth-explore').classList.add('synthesis-open');toast('Empat komponen ditemukan. Hubungkan pengetahuanmu!');}
+}));
+$$('[data-synthesis]').forEach(b=>b.addEventListener('click',()=>{
+ if(state.synthesis)return;
+ $$('[data-synthesis]').forEach(x=>x.classList.remove('incorrect','correct'));
+ if(b.dataset.synthesis!=='0'){
+   b.classList.add('incorrect');$('synthesisFeedback').className='feedback-slot attention';$('synthesisFeedback').innerHTML='Belum sesuai. Ingat informasi tentang suhu dan tekanan yang sudah kamu baca. Coba lagi.';return;
+ }
+ state.synthesis=true;b.classList.add('correct');$$('[data-synthesis]').forEach(x=>x.disabled=true);
+ $('synthesisFeedback').className='feedback-slot good';$('synthesisFeedback').innerHTML='<b>Tepat!</b> Air cair di permukaan bergantung pada kondisi suhu dan tekanan. Kondisi Bumi juga berkaitan dengan atmosfer dan energi Matahari. Jadi, satu faktor saja tidak cukup.';
+ $('earthContinue').disabled=false;toast('Hubungan komponen Bumi berhasil dipahami!');
+}));
+$('earthContinue').addEventListener('click',()=>{if(state.synthesis){state.finished=true;show('final')}});
+$('finishBtn').addEventListener('click',()=>{
+ if(!state.finished)return;
+ // Host integration is optional: Construct 3 must listen for this message.
+ try{if(window.parent&&window.parent!==window)window.parent.postMessage({type:'PETASA_JELAJAH_BUMI_DONE',completed:true,mission:1,next:'Planet Detective'},'*')}catch(_e){}
+ $('finishMessage').innerHTML='<b>Petualangan bagian ini selesai!</b> Lanjutkan pada layout PETASA: Planet Detective — Venus, Bumi, dan Mars. Jika tidak berpindah otomatis, gunakan navigasi PETASA. Pindah layout otomatis memerlukan event penerima di Construct 3.';
+ toast('Selesai! Lanjutkan investigasi Venus–Bumi–Mars.');
+});
+$('copyLKPD').addEventListener('click',async()=>{
+ const msg='PETASA — JELAJAH BUMI DAN PRANATA MANGSA\n1. Mengapa pengamatan Lintang Waluku saja belum cukup untuk menentukan waktu tanam?\n2. Jelaskan hubungan berkurangnya hujan, ketersediaan air tanah, dan pertumbuhan padi.\n3. Jelaskan satu hubungan antara atmosfer, suhu/tekanan, air cair, atau energi Matahari yang mendukung kehidupan di Bumi.';
+ try{await navigator.clipboard.writeText(msg);toast('Pertanyaan LKPD berhasil disalin.')}catch(e){const temp=document.createElement('textarea');temp.value=msg;document.body.appendChild(temp);temp.select();try{document.execCommand('copy');toast('Pertanyaan LKPD disalin.')}catch(_){toast('Silakan catat pertanyaan LKPD pada layar.')}temp.remove();}
+});
+function reset(){state.orion=false;state.clues=new Set();state.decision=false;state.relation=false;state.scanned=new Set();state.synthesis=false;state.finished=false;
+ $$('.pattern-card').forEach(x=>{x.classList.remove('picked','wrong','right');x.disabled=false});$('orionReveal').classList.remove('shown');$('orionContinue').disabled=true;
+ $('skyCaption').innerHTML='Petunjuk: amati susunan bintang yang tampak seperti <strong>tiga bintang berjajar</strong> di tengah pola.';
+ $('orionFeedback').className='feedback-slot';$('orionFeedback').textContent='Pilih salah satu sketsa untuk mengungkap petunjuk Waluku.';
+ $$('.clue').forEach(b=>{b.classList.remove('done');b.querySelector('.clue-check').textContent='○'});$('clueCount').textContent='PETUNJUK 0 / 3';$('clueDetail').innerHTML='<b>Ketuk satu bukti.</b><span>Perhatikan apa yang diamati petani dan apa artinya bagi kegiatan bertani.</span>';
+ $('farmerDecision').hidden=false;$('rainRelation').hidden=true;$('toRelation').hidden=true;
+ $$('[data-decision]').forEach(b=>{b.disabled=true;b.classList.remove('correct','incorrect')});$$('[data-relation]').forEach(b=>{b.disabled=false;b.classList.remove('correct','incorrect')});
+ $('decisionFeedback').className='feedback-slot';$('decisionFeedback').textContent='Petunjuk akan terbuka setelah tiga bukti dikumpulkan.';
+ $('relationFeedback').className='feedback-slot';$('relationFeedback').textContent='Prediksi akibat perubahan curah hujan berdasarkan hubungan antarkomponen.';$('fieldContinue').disabled=true;
+ $$('.component').forEach(b=>{b.classList.remove('done','active');b.querySelector('i').textContent='○'});$('earthCount').textContent='KOMPONEN 0 / 4';$('knowledgeBox').hidden=false;$('earthSynthesis').hidden=true;document.querySelector('.earth-explore').classList.remove('synthesis-open');
+ $('knowledgeBox').innerHTML='<p class="knowledge-heading">PILIH SATU KOMPONEN</p><p>Temukan perannya di Bumi. Setelah keempatnya terbuka, tantangan hubungan antarkomponen akan muncul.</p>';
+ $$('[data-synthesis]').forEach(b=>{b.disabled=false;b.classList.remove('correct','incorrect')});$('synthesisFeedback').className='feedback-slot';$('synthesisFeedback').textContent='Pilih hubungan yang paling tepat berdasarkan hasil jelajahmu.';$('earthContinue').disabled=true;
+ $('finishMessage').textContent='Selanjutnya: bandingkan kondisi Venus, Bumi, dan Mars dalam Planet Detective.';
+ show('welcome');
+}
+$('resetTop').addEventListener('click',()=>{if(state.screen==='welcome'||window.confirm('Ulangi web Jelajah Bumi dan Pranata Mangsa dari awal?'))reset()});
+function toggleSources(open){$('sourceModal').hidden=!open;if(open)$('sourcesClose').focus();else $('sourcesOpen').focus()}
+$('sourcesOpen').addEventListener('click',()=>toggleSources(true));$('sourcesFooter').addEventListener('click',()=>toggleSources(true));$('sourcesClose').addEventListener('click',()=>toggleSources(false));$('sourceModal').addEventListener('click',e=>{if(e.target===$('sourceModal'))toggleSources(false)});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('sourceModal').hidden)toggleSources(false)});
+show('welcome');
+
+</script>
+</body>
+</html>
